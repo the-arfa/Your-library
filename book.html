@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8">
+  <title>تفاصيل الكتاب</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="book-details">
+  <div class="icon big" id="icon">📘</div>
+  <h2 id="title">عنوان الكتاب</h2>
+  <p id="description">وصف الكتاب</p>
+
+  <ul>
+    <li>📄 الصيغة: PDF</li>
+    <li>🌍 اللغة: العربية</li>
+    <li>🎯 الفئة: Business</li>
+  </ul>
+
+  <a id="buyLink" href="#" class="btn" target="_blank">⬇️ شراء / تحميل</a>
+</div>
+
+<script>
+  const data = {
+    marketing: {
+      title: "أساسيات التسويق الرقمي",
+      description: "كتاب يشرح أساسيات التسويق الرقمي خطوة بخطوة.",
+      icon: "📘",
+      link: "https://payhip.com/example1"
+    },
+    ecommerce: {
+      title: "دليل التجارة الإلكترونية",
+      description: "كل ما تحتاجه لبناء متجر إلكتروني ناجح.",
+      icon: "📕",
+      link: "https://payhip.com/example2"
+    },
+    passive: {
+      title: "الربح السلبي",
+      description: "استراتيجيات لبناء دخل طويل المدى.",
+      icon: "📗",
+      link: "https://payhip.com/example3"
+    }
+  };
+
+  const params = new URLSearchParams(window.location.search);
+  const book = params.get("book");
+
+  if (data[book]) {
+    document.getElementById("title").innerText = data[book].title;
+    document.getElementById("description").innerText = data[book].description;
+    document.getElementById("icon").innerText = data[book].icon;
+    document.getElementById("buyLink").href = data[book].link;
+  }
+</script>
+
+</body>
+</html>
